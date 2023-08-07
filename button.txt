@@ -1,0 +1,19 @@
+
+
+npx tailwindcss -i styles/input.css -o ./src/main/resources/static/css/main.css --watch
+
+
+
+   class="form-horizontal"
+                    method="post"
+                    role="form"
+                    th:action="@{/login}"
+
+
+        <!-- Creating a form group for the submit button and register link -->
+                <div class="mb-3">
+                    <button class="btn btn-primary mb-3" type="submit">Login</button>
+                    or <a class="link-primary" th:href="@{/registration}">Register</a>
+                </div>
+
+Time-sharing systems enable multiple users to access and utilize system resources simultaneously, including the CPU, memory, and peripherals.

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Setting the character encoding and viewport for the page -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Linking to the Bootstrap CSS file -->   
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+
+
+    <!-- Setting the title of the page -->
+    <title>User</title>
+</head>
+<body>
+<!-- Creating a container for the page content -->
+<div class="container">
+    <!-- Creating a row with a column that is centered and takes up half of the available width -->
+    <div class="row mt-5">
+        <div class="col-6 mx-auto">
+            <!-- Displaying a heading for the user details -->
+            <h1>User Details</h1>
+            <!-- Using Thymeleaf and Spring Security to display the username of the authenticated user -->
+            <div class="mt-2">Username: <span sec:authentication="principal.username"/></div>
+            <!-- Using Thymeleaf and Spring Security to display the roles of the authenticated user -->
+            <div class="mt-2"> Roles: <span sec:authentication="principal.authorities"/></div>
+
+            <!-- Creating a link to logout -->
+            <div class="mt-5"><a class="link-primary" th:href="@{/login}">Logout</a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
