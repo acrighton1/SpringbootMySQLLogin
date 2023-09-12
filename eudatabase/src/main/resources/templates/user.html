@@ -6,6 +6,10 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- Linking to the Bootstrap CSS file -->   
     <link rel="stylesheet" th:href="@{/css/main.css}" />
+      <!-- Agregar el enlace al archivo de estilos de Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Agregar el enlace al archivo de la biblioteca FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
 
     <!-- Setting the title of the page -->
@@ -13,21 +17,159 @@
 </head>
 <body>
 <!-- Creating a container for the page content -->
-<div class="container">
-    <!-- Creating a row with a column that is centered and takes up half of the available width -->
-    <div class="row mt-5">
-        <div class="col-6 mx-auto">
-            <!-- Displaying a heading for the user details -->
-            <h1>User Details</h1>
+<div class="container">    
+    <body class="bg-gray-100">
+        <!-- Top Navigation -->
+        <nav class="bg-blue-500 p-4 flex items-center justify-between">
+            <div>
+                <h1 class="text-white text-xl font-semibold">Dashboard</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-white"><span sec:authentication="principal.username"/></span>
+                <i class="fas fa-user-circle text-white text-2xl"></i>
+            </div>
+        </nav>
+   
+        <div class="flex">
+            <!-- Sidebar Navigation -->
+            <aside class="bg-gray-800 text-white w-64 min-h-screen p-4">
+                <nav>
+            <ul class="space-y-2">
+              <li class="option-with-dropdown">
+                <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+                  <div class="flex items-center">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <span>Agenda</span>
+                  </div>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </div>
+                <ul class="dropdown ml-4 hidden">
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Appointment Management
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Policies
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="option-with-dropdown">
+                <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+                  <div class="flex items-center">
+                    <i class="fas fa-money-bill-wave mr-2"></i>
+                    <span>Accounting</span>
+                  </div>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </div>
+                <ul class="dropdown ml-4 hidden">
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Treatments
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Expenses
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Invoices
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="option-with-dropdown">
+                <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+                  <div class="flex items-center">
+                    <i class="fas fa-chart-bar mr-2"></i>
+                    <span>Reports</span>
+                  </div>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </div>
+                <ul class="dropdown ml-4 hidden">
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Budgets
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Medical Report
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="option-with-dropdown">
+                <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+                  <div class="flex items-center">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    <span>Documentation</span>
+                  </div>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </div>
+                <ul class="dropdown ml-4 hidden">
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Pending Signatures
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+                      <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                      Documents
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <div class="mt-5 mb-5"><a class="link-primary" th:href="@{/login}">LOGOUT</a></div>
+              
             <!-- Using Thymeleaf and Spring Security to display the username of the authenticated user -->
             <div class="mt-2">Username: <span sec:authentication="principal.username"/></div>
             <!-- Using Thymeleaf and Spring Security to display the roles of the authenticated user -->
-            <div class="mt-2"> Roles: <span sec:authentication="principal.authorities"/></div>
+            <div class="mt-2"> Roles: <span sec:authentication="principal.authorities"/></div>  
+            </ul>
+          </nav>
+     </aside>
 
-            <!-- Creating a link to logout -->
-            <div class="mt-5"><a class="link-primary" th:href="@{/login}">Logout</a></div>
+            <!-- Main Content -->
+            <main class="container mx-auto p-4 flex-1">
+                <!-- Here you can add the main content of your CRM page -->
+                <h1 class="text-2xl font-bold mb-4">Welcome to My Company's CRM!</h1>
+                <p>In this section, you'll find everything you need to efficiently manage your clients and sales.</p>
+            </main>
         </div>
-    </div>
+      
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            // Get all main options with dropdowns
+            const optionsWithDropdown = document.querySelectorAll(".option-with-dropdown");
+      
+            // Add click event to each main option
+            optionsWithDropdown.forEach(function (option) {
+              option.addEventListener("click", function () {
+                // Get the dropdown associated with the option
+                const dropdown = option.querySelector(".dropdown");
+      
+                // Toggle the "hidden" class to show or hide the dropdown
+                dropdown.classList.toggle("hidden");
+              });
+            });
+          });
+        </script>
+</body>
+</div>
 </div>
 </body>
 </html>
