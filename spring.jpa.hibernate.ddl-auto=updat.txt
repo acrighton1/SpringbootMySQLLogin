@@ -1,7 +1,7 @@
 spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/UEDatabase
-spring.datasource.username=acrighton1
-spring.datasource.password=Hellohugs87@
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:
+spring.datasource.username=
+spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.initialization-mode=always
 
